@@ -2,6 +2,8 @@
  *
  * @returns A promise that is designed to resolve with a list of hobbits, or potentially fail with an failure object. The failure object includes a boolean success property and a string message property.
  */
+
+
 function getList() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -14,6 +16,30 @@ function getList() {
     }, 10);
   });
 }
+
+
+let errorID = document.getElementById("error");
+let listID = document.getElementById("list");
+/*let promise = getList();
+function handleList (list) {
+  console.log(list);
+}
+
+function handleError(err) {
+  console.error(err);
+}
+
+promise.then(handleList).catch(handleError);
+*/
+
+
+let promise = getList();
+promise.then((list) => {
+  console.log(list);
+}).catch((err) => {
+  console.error(err);
+12});
+
 
 // TODO: Handle the resolved or rejected states of the promise
 
