@@ -33,13 +33,28 @@ promise.then(handleList).catch(handleError);
 */
 
 
-let promise = getList();
+/*let promise = getList();
 promise.then((list) => {
   console.log(list);
 }).catch((err) => {
   console.error(err);
 12});
+*/
 
+//Exercise 1
+getList()
+.then((resolvedVal) => {
+  console.log(resolvedVal);
+  for (let i = 0; i < resolvedVal.length; i++){
+    const hobbitList = document.createElement("li");
+    hobbitList.textContent = resolvedVal[i];
+    listID.append(hobbitList);
+  }
+})
+.catch((resolvedVal) => {
+  console.error(resolvedVal);
+  errorID.textContent = resolvedVal.message;
+});
 
 // TODO: Handle the resolved or rejected states of the promise
 
